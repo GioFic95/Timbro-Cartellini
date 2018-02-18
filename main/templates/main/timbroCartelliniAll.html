@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Benvenuto</title>
+</head>
+<body>
+    <h1>Benvenuto {{ nickname }}!</h1>
+    <h2>{{ today }}</h2>
+    <hr/>
+
+    <table style="width: 100%">
+        <tr>
+            <th>Nome</th>
+            <th>Nickname</th>
+            <th>Email</th>
+            <th>Data aggiunta</th>
+            <th>Numero incontri</th>
+        </tr>
+        {% for bimbo in bimbi %}
+            <tr>
+                <td>{{ bimbo.nome }}</td>
+                <td>{{ bimbo.nickname }}</td>
+                <td>{% if bimbo.email %}{{ bimbo.email }}{% else %}-{% endif %}</td>
+                <td>{{ bimbo.aggiunto }}</td>
+                <td>{{ bimbo.num_incontri }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+
+    <hr/>
+    <a href="/">Avanti un altro!</a>
+    <br>
+    <a href="/?name=all">Tutti</a>
+</body>
+</html>
